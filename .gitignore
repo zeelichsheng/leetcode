@@ -1,0 +1,12 @@
+# Java
+*.class
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+# Eclipse
+*.project
+*.classpath
+*.prefs
