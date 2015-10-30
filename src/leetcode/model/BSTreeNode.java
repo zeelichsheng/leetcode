@@ -24,18 +24,18 @@ public class BSTreeNode extends TreeNode {
 
     return n;
   }
-  
+
   public static BSTreeNode insert(BSTreeNode node, int val) {
     if (node == null) {
       return new BSTreeNode(val);
     }
-    
+
     if (val < node.val) {
       node.left = insert((BSTreeNode) node.left, val);
     } else {
       node.right = insert((BSTreeNode) node.right, val);
     }
-    
+
     return node;
   }
 }
