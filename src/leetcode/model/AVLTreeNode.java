@@ -1,6 +1,6 @@
 package leetcode.model;
 
-public class AVLTreeNode extends TreeNode {
+public class AVLTreeNode extends BSTreeNode {
 
   public int height;
 
@@ -32,9 +32,9 @@ public class AVLTreeNode extends TreeNode {
     }
 
     if (val < node.val) {
-      node.left = AVLTreeNode.insert((AVLTreeNode) node.left, val);
+      node.left = insert((AVLTreeNode) node.left, val);
     } else {
-      node.right = AVLTreeNode.insert((AVLTreeNode) node.right, val);
+      node.right = insert((AVLTreeNode) node.right, val);
     }
 
     // 2. Update height of this ancestor node
@@ -84,7 +84,7 @@ public class AVLTreeNode extends TreeNode {
     return x;
   }
 
-  private static AVLTreeNode leftRotate(AVLTreeNode node) {
+  public static AVLTreeNode leftRotate(AVLTreeNode node) {
     AVLTreeNode x = (AVLTreeNode) node.right;
     AVLTreeNode xx = (AVLTreeNode) x.left;
 
