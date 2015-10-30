@@ -73,26 +73,30 @@ public class AVLTreeNode extends BSTreeNode {
 
   public static AVLTreeNode rightRotate(AVLTreeNode node) {
     AVLTreeNode x = (AVLTreeNode) node.left;
-    AVLTreeNode xx = (AVLTreeNode) x.right;
+    AVLTreeNode xx = x == null ? null : (AVLTreeNode) x.right;
 
-    x.right = node;
+    if (x != null) {
+      x.right = node;
+      x.height = Math.max(getHeight((AVLTreeNode) x.left), getHeight((AVLTreeNode) x.right)) + 1;
+    }
+
     node.left = xx;
-
     node.height = Math.max(getHeight((AVLTreeNode) node.left), getHeight((AVLTreeNode) node.right)) + 1;
-    x.height = Math.max(getHeight((AVLTreeNode) x.left), getHeight((AVLTreeNode) x.right)) + 1;
 
     return x;
   }
 
   public static AVLTreeNode leftRotate(AVLTreeNode node) {
     AVLTreeNode x = (AVLTreeNode) node.right;
-    AVLTreeNode xx = (AVLTreeNode) x.left;
+    AVLTreeNode xx = x == null ? null : (AVLTreeNode) x.left;
 
-    x.left = node;
+    if (x != null) {
+      x.left = node;
+      x.height = Math.max(getHeight((AVLTreeNode) x.left), getHeight((AVLTreeNode) x.right)) + 1;
+    }
+
     node.right = xx;
-
     node.height = Math.max(getHeight((AVLTreeNode) node.left), getHeight((AVLTreeNode) node.right)) + 1;
-    x.height = Math.max(getHeight((AVLTreeNode) x.left), getHeight((AVLTreeNode) x.right)) + 1;
 
     return x;
   }
